@@ -1,10 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function App() {
   const AmoCRM = require("amocrm-js");
-  const [value, setValue] = useState();
   useEffect(() => {
     const crm = new AmoCRM({
       domain: "loftfitnessyar.amocrm.ru",
@@ -21,7 +20,7 @@ function App() {
       const response = await crm.request.get("/api/v4/account");
       console.log(response.data);
     })();
-  }, []);
+  }, [AmoCRM]);
   return (
     <div className="App">
       <header className="App-header">
